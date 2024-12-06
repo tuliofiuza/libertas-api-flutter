@@ -5,7 +5,7 @@ import '../models/album.dart';
 class ApiService {
   Future<List<Album>> fetchAlbum() async {
     final response = await http
-        .get(Uri.parse('https://arquivos.ectare.com.br/fornecedores.json'));
+        .get(Uri.parse('https://arquivos.ectare.com.br/sorvetes.json'));
 
     if (response.statusCode == 200) {
       // Processar os dados e substituir caracteres especiais

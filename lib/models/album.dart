@@ -1,22 +1,22 @@
 class Album {
-  final String nome;
-  final String produto;
-  final String telefone;
-  final String cidade;
+  final String sabor;
+  final String tipo;
+  final int quantidade;
+  final num preco;
 
   Album({
-    required this.nome,
-    required this.produto,
-    required this.telefone,
-    required this.cidade,
+    required this.sabor,
+    required this.tipo,
+    required this.quantidade,
+    required this.preco,
   });
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
-      nome: json['nome'],
-      produto: json['produto'],
-      telefone: json['telefone'],
-      cidade: json['cidade'],
+      sabor: json['sabor'],
+      tipo: json['tipo'],
+      quantidade: json['quantidade'],
+      preco: json['preco'],
     );
   }
 }

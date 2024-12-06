@@ -6,6 +6,7 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
@@ -22,9 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lista de Dados'),
+        title: const Text('Lista de Dados', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color(0xFFA57E56),
       ),
       body: Center(
         child: FutureBuilder<List<Album>>(
@@ -48,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  shadowColor: Colors.deepPurple.withOpacity(0.5),
+                  shadowColor: const Color(0xFFA57E56).withOpacity(0.5),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -57,14 +58,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         Row(
                           children: [
                             const Icon(
-                              Icons.person,
-                              color: Colors.deepPurple,
+                              Icons.icecream,
+                              color: Color(0xFFA57E56),
                               size: 30,
                             ),
                             const SizedBox(width: 10),
                             Expanded(
                               child: Text(
-                                album.nome,
+                                album.sabor,
                                 style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -75,19 +76,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                         const Divider(
-                          color: Colors.deepPurple,
+                          color: Color(0xFFA57E56),
                           thickness: 1.5,
                           height: 20,
                         ),
                         Row(
                           children: [
                             const Icon(
-                              Icons.phone,
-                              color: Colors.green,
+                              Icons.fingerprint,
+                              color: Color(0xFFF6B3DC),
                             ),
                             const SizedBox(width: 10),
                             Text(
-                              "Telefone: ${album.telefone}",
+                              "Tipo: ${album.tipo}",
                               style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.black54,
@@ -99,12 +100,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         Row(
                           children: [
                             const Icon(
-                              Icons.shopping_bag,
-                              color: Colors.blue,
+                              Icons.shopping_cart,
+                              color: Color(0xFFF6B3DC),
                             ),
                             const SizedBox(width: 10),
                             Text(
-                              "Produto: ${album.produto}",
+                              "${album.quantidade} unidades",
                               style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.black54,
@@ -116,12 +117,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         Row(
                           children: [
                             const Icon(
-                              Icons.location_city,
-                              color: Colors.orange,
+                              Icons.sell,
+                              color: Color(0xFFF6B3DC),
                             ),
                             const SizedBox(width: 10),
                             Text(
-                              "Cidade: ${album.cidade}",
+                              "R\$ ${album.preco.toStringAsFixed(2).replaceAll(".", ",")}",
                               style: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.black54,
